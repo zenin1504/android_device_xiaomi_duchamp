@@ -214,9 +214,9 @@
             "Name":"battery",
             "Type":"BATTERY",
             "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
+                "NaN",
+                "NaN",
+                "NaN",
                 50.0,
                 55.0,
                 59.0,
@@ -229,15 +229,15 @@
             "Name":"mtktsbtsmdpa",
             "Type":"POWER_AMPLIFIER",
             "HotThreshold":[
-                "NAN",
-                "NAN",
-                "NAN",
+                "NaN",
+                "NaN",
+                "NaN",
                 68.0,
                 90.0,
                 100.0,
                 110.0
             ],
-            "VrThreshold":"NAN",
+            "VrThreshold":"NaN",
             "Multiplier":0.001
         },
         {
