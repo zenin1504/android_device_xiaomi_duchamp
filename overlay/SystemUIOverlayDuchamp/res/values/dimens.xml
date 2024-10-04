@@ -17,5 +17,5 @@
     <dimen name="physical_power_button_center_screen_location_y">1175px</dimen>
 
     <!-- Pixel pitch of the device. um/px -->
-    <item name="pixel_pitch" format="float" type="dimen">52.92</item>
+    <item name="pixel_pitch" format="float" type="dimen">56.9</item>
 </resources>
