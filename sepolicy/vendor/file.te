@@ -4,6 +4,9 @@ type sound_device, dev_type, mlstrustedobject;
 type sysfs_f0_value, fs_type, sysfs_type;
 type sysfs_re25_calib, fs_type, sysfs_type;
 
+# Bypass Charging
+type sysfs_battery_supply, fs_type, sysfs_type;
+
 # Camera
 type camera_persist_file, file_type;
 type vendor_camera_data_file, data_file_type, file_type;

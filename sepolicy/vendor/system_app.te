@@ -1,7 +1,14 @@
+# Bypass Charging
+allow system_app sysfs_battery_supply:dir search;
+allow system_app sysfs_battery_supply:file { getattr open read write };
+
+# Turbo Charge
 allow system_app sysfs_power_supply:file { write setattr };
 allow system_app sysfs_power_supply:file rw_file_perms;
 allow system_app sysfs_power_supply:dir search;
 allow system_app sysfs_power_supply:file { write setattr };
+
+# Thermal Profile
 allow system_app sysfs_therm:dir search;
 allow system_app sysfs_therm:file { write };
 allow system_app sysfs_therm:file { getattr open read };

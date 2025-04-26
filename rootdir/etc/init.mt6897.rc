@@ -1027,3 +1027,7 @@ on property:persist.sys.parts.cpu.prime.max_frequency=*
     write /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq ${persist.sys.parts.cpu.prime.max_frequency}
 on property:persist.sys.parts.cpu.prime.governor=*
     write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor ${persist.sys.parts.cpu.prime.governor}
+
+# Charge Bypass
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0660 /sys/class/power_supply/battery/input_suspend
