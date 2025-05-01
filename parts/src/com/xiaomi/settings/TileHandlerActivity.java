@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2025 The LineageOS Project
+ * Copyright (C) 2025 kenway215
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,11 +28,12 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.xiaomi.settings.thermal.ThermalSettingsActivity;
-import com.xiaomi.settings.thermal.ThermalTileService;
-
+import com.xiaomi.settings.gamebar.GameBarSettingsActivity;
+import com.xiaomi.settings.gamebar.GameBarTileService;
 import com.xiaomi.settings.powertools.PowerProfileTileService;
 import com.xiaomi.settings.powertools.PowertoolsActivity;
+import com.xiaomi.settings.thermal.ThermalSettingsActivity;
+import com.xiaomi.settings.thermal.ThermalTileService;
 
 public final class TileHandlerActivity extends Activity {
     private static final String TAG = "TileHandlerActivity";
@@ -41,8 +42,9 @@ public final class TileHandlerActivity extends Activity {
     private static final Map<String, Class<?>> TILE_ACTIVITY_MAP = new HashMap<>();
 
     static {
-        TILE_ACTIVITY_MAP.put(ThermalTileService.class.getName(), ThermalSettingsActivity.class);
+        TILE_ACTIVITY_MAP.put(GameBarTileService.class.getName(), GameBarSettingsActivity.class);
         TILE_ACTIVITY_MAP.put(PowerProfileTileService.class.getName(), PowertoolsActivity.class);
+        TILE_ACTIVITY_MAP.put(ThermalTileService.class.getName(), ThermalSettingsActivity.class);
     }
 
     @Override
@@ -66,6 +68,7 @@ public final class TileHandlerActivity extends Activity {
         final String qsName = qsTile.getClassName();
         final Intent targetIntent = new Intent();
 
+        // Check if the tile is mapped to an activity
         if (TILE_ACTIVITY_MAP.containsKey(qsName)) {
             targetIntent.setClass(this, TILE_ACTIVITY_MAP.get(qsName));
             Log.d(TAG, "Launching settings activity for QS tile: " + qsName);
@@ -82,6 +85,7 @@ public final class TileHandlerActivity extends Activity {
             Log.d(TAG, "Opening app info for package: " + packageName);
         }
 
+        // Ensure proper navigation behavior
         targetIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK |
                 Intent.FLAG_ACTIVITY_NEW_TASK);
