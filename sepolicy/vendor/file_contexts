@@ -6,6 +6,9 @@
 # Batterysecret
 /(vendor|system/vendor)/bin/batterysecret                                                              u:object_r:vendor_batterysecret_exec:s0
 
+# Core Control
+/sys/devices/system/cpu/cpu[0-7]/online					       u:object_r:vendor_sysfs_corecontrol:s0
+
 # Camera
 /data/vendor/camera(/.*)?                                                                              u:object_r:vendor_camera_data_file:s0
 /mnt/vendor/persist/camera(/.*)?                                                                       u:object_r:camera_persist_file:s0

@@ -13,6 +13,9 @@ genfscon sysfs /devices/platform/extcon-usb/extcon/extcon1/cable.0/name         
 genfscon sysfs /devices/platform/extcon-usb/extcon/extcon1/cable.1/name                               u:object_r:sysfs_extcon:s0
 genfscon sysfs /devices/platform/soc/11e10000.dp-tx/extcon/dp_audio/cable.0/name                      u:object_r:sysfs_extcon:s0
 
+# Core Control
+genfscon sysfs /devices/system/cpu/cpu[0-7]/online   u:object_r:vendor_sysfs_corecontrol:s0
+
 # Fingerprint
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status u:object_r:vendor_fingerprint_sysfs:s0
 
