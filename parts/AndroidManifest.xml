@@ -17,10 +17,12 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
     <application
-        android:label="@string/device_settings_app_name"
+        android:label="@string/app_title"
+        android:icon="@drawable/ic_xiaomiparts"
         android:persistent="true"
         android:defaultToDeviceProtectedStorage="true"
-        android:directBootAware="true">
+        android:directBootAware="true"
+        android:theme="@style/Theme.SubSettingsBase">
 
         <receiver
             android:name=".BootCompletedReceiver"
@@ -32,12 +34,37 @@
             </intent-filter>
         </receiver>
 
+        <receiver
+            android:name=".Startup"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".thermal.ThermalSettingsActivity"
+            android:label="@string/thermal_title"
+            android:theme="@style/Theme.SubSettingsBase_v31.Thermal"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.battery" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/thermal_summary" />
+        </activity>
+
         <service
-            android:name=".display.ColorModeService"
-            android:permission="ColorModeService">
+            android:name=".thermal.ThermalService"
+            android:permission="ThermalService">
         </service>
 
-    <!-- Turbo Charging -->
+        <!-- Turbo Charging -->
         <activity
             android:name=".turbocharging.TurboChargingActivity"
             android:exported="false"
@@ -57,6 +84,97 @@
         <service
             android:name=".turbocharging.TurboChargingService"
             android:permission="TurboChargingService">
+        </service>
+
+        <!-- Thermal Profiles tile service -->
+        
+        <service
+            android:name=".thermal.ThermalTileService"
+            android:label="@string/thermal_tile_label"
+            android:icon="@drawable/ic_thermal_tile"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <activity
+            android:name=".speaker.ClearSpeakerActivity" 
+            android:label="@string/clear_speaker_title"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.sound" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/clear_speaker_summary" />
+        </activity>
+
+    <!-- TileHandler activity -->
+        <activity
+            android:name=".TileHandlerActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
+        </activity>
+
+        <!-- Powertools Activity -->
+        <activity
+            android:name=".powertools.PowertoolsActivity"
+            android:label="@string/Powertools_title"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.battery" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/Powertools_summary" />
+        </activity>
+
+        <!-- Powertools Quick Settings Tile Service -->
+        <service
+            android:name=".powertools.PowerProfileTileService"
+            android:label="@string/powerprofile_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:icon="@drawable/ic_thermal_balance"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <!-- Powertool BootReceiver -->
+        <receiver android:name=".powertools.PowertoolBootReceiver"
+            android:exported="true"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".display.ColorModeService"
+            android:permission="ColorModeService">
         </service>
 
     </application>

@@ -16,6 +16,9 @@ import android.util.Log;
 import android.view.Display;
 import android.view.Display.HdrCapabilities;
 import com.xiaomi.settings.display.ColorModeService;
+
+import com.xiaomi.settings.thermal.ThermalService;
+import com.xiaomi.settings.thermal.ThermalUtils;
 import com.xiaomi.settings.turbocharging.TurboChargingService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -33,6 +36,18 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start TurboChargingService
         Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
         context.startService(turboChargingIntent);
+
+        // Start ThermalService
+        try {
+            ThermalUtils thermalUtils = ThermalUtils.getInstance(context);
+            if (thermalUtils.isEnabled()) {
+                Intent thermalServiceIntent = new Intent(context, ThermalService.class);
+                context.startService(thermalServiceIntent);
+                if (DEBUG) Log.d(TAG, "Started ThermalService");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to start ThermalService", e);
+        }
 
         // Display
         context.startServiceAsUser(new Intent(context, ColorModeService.class),

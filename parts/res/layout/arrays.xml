@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!--
      Copyright (C) 2025 The Android Open Source Project
      SPDX-License-Identifier: Apache-2.0
@@ -44,11 +44,112 @@
          <item>com.tencent.tmgp.pubgmhd</item>
          <item>com.vng.pubgmobile</item>
          <item>com.activision.callofduty.shooter</item>
-         <item>com.garena.game.codm</item>
+         <item>com.garena.game.codm</item>Add commentMore actions
          <item>com.tencent.tmgp.kr.codm</item>
          <item>com.vng.codmvn</item>
          <item>com.miHoYo.GenshinImpact</item>
          <item>com.kurogame.wutheringwaves</item>
+    </string-array>
+
+    <!-- FPS Overlay -->
+    <string-array name="game_bar_fps_method_entries">
+        <item>New API (Default)</item>
+        <item>Legacy Sysfs</item>
+    </string-array>
+    <string-array name="game_bar_fps_method_values">
+        <item>new</item>
+        <item>legacy</item>
+    </string-array>
+
+    <!-- Update Interval -->
+    <string-array name="fps_overlay_update_interval_entries">
+        <item>Every 500 ms</item>
+        <item>Every second</item>
+        <item>Every 2 seconds</item>
+        <item>Every 5 seconds</item>
+    </string-array>
+    <string-array name="fps_overlay_update_interval_values">
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+    </string-array>
+    
+    <!-- Position -->
+    <string-array name="fps_overlay_position_entries">
+        <item>Top left</item>
+        <item>Top center</item>
+        <item>Top right</item>
+        <item>Bottom left</item>
+        <item>Bottom center</item>
+        <item>Bottom right</item>
+        <item>Custom (Draggable)</item>
+    </string-array>
+    <string-array name="fps_overlay_position_values">
+        <item>top_left</item>
+        <item>top_center</item>
+        <item>top_right</item>
+        <item>bottom_left</item>
+        <item>bottom_center</item>
+        <item>bottom_right</item>
+        <item>draggable</item>
+    </string-array>
+    
+    <!-- Overlay color -->
+    <string-array name="fps_overlay_color_entries">
+        <item>White</item>
+        <item>Crimson</item>
+        <item>Fruit salad</item>
+        <item>Royal blue</item>
+        <item>Amber</item>
+        <item>Teal</item>
+        <item>Electric violet</item>
+        <item>Magenta</item>
+    </string-array>
+
+    <string-array name="fps_overlay_color_values">
+        <item>#FFFFFF</item>
+        <item>#DC143C</item>
+        <item>#4CAF50</item>
+        <item>#4169E1</item>
+        <item>#FFBF00</item>
+        <item>#008080</item>
+        <item>#8A2BE2</item>
+        <item>#FF1493</item>
+    </string-array>
+
+    <!-- Overlay format -->
+    <string-array name="game_bar_format_entries">
+        <item>Full</item>
+        <item>Minimal</item>
+    </string-array>
+    <string-array name="game_bar_format_values">
+        <item>full</item>
+        <item>minimal</item>
+    </string-array>
+
+    <!-- Split Mode -->
+    <string-array name="game_bar_split_mode_entries">
+        <item>Side by side</item>
+        <item>Stacked</item>
+    </string-array>
+    <string-array name="game_bar_split_mode_values">
+        <item>side_by_side</item>
+        <item>stacked</item>
+    </string-array>
+
+    <!-- Long press timeouts -->
+    <string-array name="game_bar_longpress_entries">
+        <item>0.5 seconds</item>
+        <item>1 second</item>
+        <item>3 seconds</item>
+        <item>5 seconds</item>
+    </string-array>
+    <string-array name="game_bar_longpress_values">
+        <item>500</item>
+        <item>1000</item>
+        <item>3000</item>
+        <item>5000</item>
     </string-array>
 
     <!-- GPU Frequency Options (Common Higher Frequencies) -->
@@ -234,19 +335,6 @@
          <item>2</item>
          <item>3</item>
          <item>4</item>
-    </string-array>
-
-    <!-- Turbo Charging -->
-    <string-array name="turbo_modes_entries">
-        <item>@string/turbo_mode_one</item>
-        <item>@string/turbo_mode_two</item>
-        <item>@string/turbo_mode_three</item>
-    </string-array>
-
-    <string-array name="turbo_modes_values">
-        <item>4500000</item>
-        <item>7000000</item>
-        <item>22000000</item>
     </string-array>
 
 </resources>

@@ -6,8 +6,14 @@
 
 android_app {
     name: "XiaomiParts",
+    defaults: [
+        "SettingsLibDefaults",
+    ],
     certificate: "platform",
-    srcs: ["src/**/*.java"],
+    srcs: [
+        "src/**/*.kt",
+        "src/**/*.java"
+    ],
     platform_apis: true,
     privileged: true,
     system_ext_specific: true,
