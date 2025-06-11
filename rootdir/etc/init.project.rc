@@ -92,9 +92,6 @@ on property:vendor.audio.cit.spkcal.copy=true
 on property:sys.spatial.headtrack=*
     setprop vendor.spatial.headtrack ${sys.spatial.headtrack}
 
-    # Set thermal mode to default
-    write /sys/devices/virtual/thermal/thermal_message/sconfig 0
-
 on boot
     # Display feature sysfs node
     chown system system /sys/class/mi_display/disp-DSI-0/disp_param
