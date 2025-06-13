@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_duchamp.mk
+    $(LOCAL_DIR)/pixelage_duchamp.mk
