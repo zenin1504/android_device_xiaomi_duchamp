@@ -68,12 +68,6 @@ public class ThermalSettingsFragment extends PreferenceFragment
     private MainSwitchPreference mMainSwitch;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.thermal_layout, container, false);
-    }
-
-    @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.thermal_settings);
 
