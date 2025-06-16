@@ -1,0 +1,20 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_prebuilt_library_shared {
+    name: "libutils-v34",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["libutils-v34.so"],
+        },
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+}

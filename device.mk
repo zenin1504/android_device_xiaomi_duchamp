@@ -404,6 +404,10 @@ PRODUCT_PACKAGES += \
     android.hardware.usb-service.mediatek \
     android.hardware.usb.gadget-service.mediatek
 
+# VNDK
+PRODUCT_PACKAGES += \
+    libutils-v34
+
 # Vendor service manager
 PRODUCT_PACKAGES += \
     vndservicemanager
