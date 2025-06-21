@@ -100,7 +100,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/mt6897/libmtkcam_hwnode.jpegnode.so': blob_fixup()
         .add_needed('libultrahdr_shim.so'),
     ('vendor/lib64/libnvram.so', 'vendor/lib64/libsysenv.so'): blob_fixup()
-        .add_needed('libbase_shim.so'),
+        .replace_needed('libbase.so', 'libbase_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
